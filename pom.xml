@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.13</version>
+        <version>3.5.0</version>
         <relativePath/>
     </parent>
     
@@ -31,7 +31,7 @@
     
     <properties>
         <java.version>21</java.version>
-        <spring-boot.version>3.3.13</spring-boot.version>
+        <spring-boot.version>3.5.0</spring-boot.version>
         <springdoc.version>2.6.0</springdoc.version>
         <lombok.version>1.18.42</lombok.version>
         <embedded-mongo.version>4.11.0</embedded-mongo.version>
