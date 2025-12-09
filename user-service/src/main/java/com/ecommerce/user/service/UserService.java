@@ -1,18 +1,20 @@
 package com.ecommerce.user.service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Service;
+
 import com.ecommerce.user.dto.UserRequest;
 import com.ecommerce.user.dto.UserResponse;
 import com.ecommerce.user.exception.DuplicateEmailException;
 import com.ecommerce.user.exception.UserNotFoundException;
 import com.ecommerce.user.model.User;
 import com.ecommerce.user.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 💼 USER SERVICE - Business Logic Layer
@@ -77,6 +79,10 @@ public class UserService {
                 .updatedAt(LocalDateTime.now())
                 .build();
         
+        if (user == null) {
+            throw new IllegalArgumentException("Failed to create user from request");
+        }
+        
         // Save to database
         User savedUser = userRepository.save(user);
         log.info("User created successfully with ID: {}", savedUser.getId());
@@ -90,6 +96,10 @@ public class UserService {
      */
     public UserResponse getUserById(String id) {
         log.info("Fetching user with ID: {}", id);
+        
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("User ID cannot be null or empty");
+        }
         
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
@@ -127,6 +137,10 @@ public class UserService {
     public UserResponse updateUser(String id, UserRequest request) {
         log.info("Updating user with ID: {}", id);
         
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("User ID cannot be null or empty");
+        }
+        
         User existingUser = userRepository.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("User not found with ID: " + id));
         
@@ -153,6 +167,7 @@ public class UserService {
     /**
      * 🗑️ DELETE user
      */
+    @SuppressWarnings("null")
     public void deleteUser(String id) {
         log.info("Deleting user with ID: {}", id);
         
