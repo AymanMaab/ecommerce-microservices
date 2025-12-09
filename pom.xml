@@ -34,6 +34,7 @@
         <spring-boot.version>3.2.0</spring-boot.version>
         <springdoc.version>2.3.0</springdoc.version>
         <lombok.version>1.18.30</lombok.version>
+        <embedded-mongo.version>4.11.0</embedded-mongo.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -64,6 +65,14 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+            
+            <!-- Embedded MongoDB for testing -->
+            <dependency>
+                <groupId>de.flapdoodle.embed</groupId>
+                <artifactId>de.flapdoodle.embed.mongo</artifactId>
+                <version>${embedded-mongo.version}</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
