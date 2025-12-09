@@ -15,9 +15,9 @@ import java.util.List;
  */
 @Configuration
 public class OpenApiConfig {
-    
+
     @Bean
-    public OpenAPI productServiceOpenAPI() {
+    OpenAPI productServiceOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
                         .title("Product Service API")

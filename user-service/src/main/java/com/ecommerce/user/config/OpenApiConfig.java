@@ -33,9 +33,9 @@ import java.util.List;
  */
 @Configuration
 public class OpenApiConfig {
-    
+
     @Bean
-    public OpenAPI userServiceOpenAPI() {
+    OpenAPI userServiceOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
                         .title("User Service API")

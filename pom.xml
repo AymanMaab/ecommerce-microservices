@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0</version>
+        <version>3.3.13</version>
         <relativePath/>
     </parent>
     
@@ -31,9 +31,9 @@
     
     <properties>
         <java.version>21</java.version>
-        <spring-boot.version>3.2.0</spring-boot.version>
-        <springdoc.version>2.3.0</springdoc.version>
-        <lombok.version>1.18.30</lombok.version>
+        <spring-boot.version>3.3.13</spring-boot.version>
+        <springdoc.version>2.6.0</springdoc.version>
+        <lombok.version>1.18.42</lombok.version>
         <embedded-mongo.version>4.11.0</embedded-mongo.version>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -98,10 +98,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.14.1</version>
                 <configuration>
-                    <source>21</source>
-                    <target>21</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
